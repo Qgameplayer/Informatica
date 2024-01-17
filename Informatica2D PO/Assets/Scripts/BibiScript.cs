@@ -21,9 +21,9 @@ public class BibiScript : MonoBehaviour
     [SerializeField] private bool isOnGround;
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private LayerMask groundCheckLayerMask;
+    [SerializeField] private LayerMask boboCheckLayerMask;
 
-    [SerializeField] private GameObject bobo;
-    [SerializeField] private bool isOnPlayer;
+    [SerializeField] private bool isOnBobo;
 
    // Start is called before the first frame update
    void Start()
@@ -42,6 +42,7 @@ public class BibiScript : MonoBehaviour
     {
 
         isOnGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask);
+        isOnBobo = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, boboCheckLayerMask);
 
         if (Input.GetKey(left))
         {
@@ -56,7 +57,7 @@ public class BibiScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-        if (Input.GetKey(jump) && isOnGround)
+        if (Input.GetKey(jump) && (isOnGround || isOnBobo))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }
