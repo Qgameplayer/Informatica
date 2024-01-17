@@ -21,8 +21,8 @@ public class BibiScript : MonoBehaviour
     [SerializeField] private bool isOnGround;
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private LayerMask groundCheckLayerMask;
-    [SerializeField] private LayerMask boboCheckLayerMask;
 
+    [SerializeField] private LayerMask boboCheckLayerMask;
     [SerializeField] private bool isOnBobo;
 
    // Start is called before the first frame update
