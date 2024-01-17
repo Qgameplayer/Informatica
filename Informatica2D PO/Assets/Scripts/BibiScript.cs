@@ -1,6 +1,8 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BibiScript : MonoBehaviour
@@ -24,6 +26,8 @@ public class BibiScript : MonoBehaviour
 
     [SerializeField] private LayerMask boboCheckLayerMask;
     [SerializeField] private bool isOnBobo;
+
+    [SerializeField] private GameObject bibi;
 
    // Start is called before the first frame update
    void Start()
@@ -63,6 +67,22 @@ public class BibiScript : MonoBehaviour
         }
 
     }
- 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Spike")
+        {
+            BibiDeath();
+        }
+    }
+
+    private void BibiDeath()
+    {
+        Debug.Log("Bibi dood");
+        Destroy(bibi);
+        // death particles
+        // death animation?
+        // leven eraf of opnieuw beginnen
+    }
 
 }

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class SpikeScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private GameObject bibi;
+
+    private void Start()
     {
-        
+        //bibi = GameObject.FindGameObjectsWithTag("Bibi");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
