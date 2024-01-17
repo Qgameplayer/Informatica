@@ -9,7 +9,7 @@ public class SpikeScript : MonoBehaviour
 
     private void Start()
     {
-        //bibi = GameObject.FindGameObjectsWithTag("Bibi");
+        
     }
 
 }
