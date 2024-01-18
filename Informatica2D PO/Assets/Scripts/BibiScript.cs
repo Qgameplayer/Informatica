@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class BibiScript : MonoBehaviour
 {
+    LogicScript logicScript;
+    [SerializeField] private GameObject logic;
 
 
     [SerializeField] private float moveSpeed;
@@ -28,12 +30,14 @@ public class BibiScript : MonoBehaviour
     [SerializeField] private bool isOnBobo;
 
     [SerializeField] private GameObject bibi;
+    public Vector2 spawnPos;
 
-   // Start is called before the first frame update
-   void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        logicScript = logic.GetComponent<LogicScript>();
+        spawnPos = transform.position;
     }
 
     // Update is called once per frame
@@ -67,17 +71,6 @@ public class BibiScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }
 
-    }
-
-
-
-    public void BibiDeath()
-    {
-        Debug.Log("Bibi dood");
-        Destroy(bibi);
-        // death particles
-        // death animation?
-        // leven eraf of opnieuw beginnen
     }
 
 }

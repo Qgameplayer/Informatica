@@ -6,12 +6,15 @@ public class SpikeScript : MonoBehaviour
 {
 
     BibiScript bibiScript;
-
     [SerializeField] private GameObject bibi;
+
+    LogicScript logicScript;
+    [SerializeField] private GameObject logic;
 
     private void Start()
     {
         bibiScript = bibi.GetComponent<BibiScript>();
+        logicScript = logic.GetComponent<LogicScript>();
 
     }
 
@@ -19,8 +22,7 @@ public class SpikeScript : MonoBehaviour
     {
         if (collision.gameObject == bibi)
         {
-            Debug.Log(collision);
-            bibiScript.BibiDeath();
+            logicScript.HandlePlayerDeath();
         }
     }
 
