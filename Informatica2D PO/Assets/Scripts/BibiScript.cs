@@ -33,6 +33,7 @@ public class BibiScript : MonoBehaviour
    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -68,15 +69,9 @@ public class BibiScript : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Spike")
-        {
-            BibiDeath();
-        }
-    }
 
-    private void BibiDeath()
+
+    public void BibiDeath()
     {
         Debug.Log("Bibi dood");
         Destroy(bibi);
