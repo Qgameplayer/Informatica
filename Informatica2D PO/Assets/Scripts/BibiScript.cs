@@ -71,6 +71,11 @@ public class BibiScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }
 
+        if (transform.position.y < -2)
+        {
+            logicScript.HandlePlayerDeath();
+        }
+
     }
 
 }

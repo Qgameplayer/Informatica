@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3543556801313878603}
   - component: {fileID: 8269704802770596544}
-  - component: {fileID: 3860423942754120231}
   - component: {fileID: 4433081902410981033}
+  - component: {fileID: 3860423942754120231}
   m_Layer: 8
   m_Name: Bibi
   m_TagString: Untagged
@@ -94,36 +94,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3860423942754120231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644945213130180800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0732e86971d8c14794e679882e3f425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logic: {fileID: 2602209735187026108, guid: cfd50e6ca19ebcd4eb58d011223260d3, type: 3}
-  moveSpeed: 5
-  jumpHeight: 10
-  left: 276
-  right: 275
-  jump: 273
-  groundCheckPoint: {fileID: 4762581990035636728}
-  isOnGround: 0
-  groundCheckRadius: 0.2
-  groundCheckLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  boboCheckLayerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  isOnBobo: 0
-  bibi: {fileID: 5644945213130180800}
-  spawnPos: {x: 0, y: 0}
 --- !u!61 &4433081902410981033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,6 +139,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3860423942754120231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644945213130180800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0732e86971d8c14794e679882e3f425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logic: {fileID: 2602209735187026108, guid: cfd50e6ca19ebcd4eb58d011223260d3, type: 3}
+  moveSpeed: 5
+  jumpHeight: 10
+  left: 276
+  right: 275
+  jump: 273
+  groundCheckPoint: {fileID: 4762581990035636728}
+  isOnGround: 0
+  groundCheckRadius: 0.2
+  groundCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  boboCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  isOnBobo: 0
+  bibi: {fileID: 5644945213130180800}
+  spawnPos: {x: 0, y: 0}
 --- !u!1 &7657138939245565611
 GameObject:
   m_ObjectHideFlags: 0

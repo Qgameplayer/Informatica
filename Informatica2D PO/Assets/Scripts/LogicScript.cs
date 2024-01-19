@@ -30,7 +30,6 @@ public class LogicScript : MonoBehaviour
 
     }
 
-
     public void HandlePlayerDeath()
     {
         currentLifes--;
