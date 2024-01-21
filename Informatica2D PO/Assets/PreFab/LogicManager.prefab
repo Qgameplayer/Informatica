@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1710200950437355471}
   m_Layer: 0
   m_Name: LogicManager
-  m_TagString: Untagged
+  m_TagString: Logic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,4 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb5beb5d2c207c4d83e9af1528952ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bibi: {fileID: 5644945213130180800, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}

@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpikeScript : MonoBehaviour
 {
 
     BibiScript bibiScript;
-    [SerializeField] private GameObject bibi;
+    private GameObject bibi;
 
     LogicScript logicScript;
-    [SerializeField] private GameObject logic;
+    private GameObject logic;
 
     private void Start()
     {
+        bibi = GameObject.FindWithTag("Bibi");
         bibiScript = bibi.GetComponent<BibiScript>();
+
+        logic = GameObject.FindWithTag("Logic");
         logicScript = logic.GetComponent<LogicScript>();
 
     }

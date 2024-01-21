@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
 
-    [SerializeField] private GameObject bibi;
+    private GameObject bibi;
     BibiScript bibiScript;
 
 
@@ -17,6 +17,7 @@ public class LogicScript : MonoBehaviour
 
     private void Start()
     {
+        bibi = GameObject.FindWithTag("Bibi");
         bibiScript = bibi.GetComponent<BibiScript>();
     }
 

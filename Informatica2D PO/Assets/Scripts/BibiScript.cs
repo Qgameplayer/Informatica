@@ -8,7 +8,7 @@ using UnityEngine;
 public class BibiScript : MonoBehaviour
 {
     LogicScript logicScript;
-    [SerializeField] private GameObject logic;
+    private GameObject logic;
 
 
     [SerializeField] private float moveSpeed;
@@ -27,23 +27,27 @@ public class BibiScript : MonoBehaviour
     [SerializeField] private LayerMask groundCheckLayerMask;
 
     [SerializeField] private LayerMask boboCheckLayerMask;
-    [SerializeField] private bool isOnBobo;
+    private bool isOnBobo;
 
-    [SerializeField] private GameObject bibi;
+    private GameObject bibi;
     public Vector2 spawnPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        bibi = GameObject.FindWithTag("Bibi");
+        
         rb = GetComponent<Rigidbody2D>();
-        logicScript = logic.GetComponent<LogicScript>();
         spawnPos = transform.position;
+
+        logic = GameObject.FindWithTag("Logic");
+        logicScript = logic.GetComponent<LogicScript>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
         MovementManager();
     }
 
@@ -76,6 +80,11 @@ public class BibiScript : MonoBehaviour
             logicScript.HandlePlayerDeath();
         }
 
+    }
+
+    private void ladderClimbing()
+    {
+        
     }
 
 }

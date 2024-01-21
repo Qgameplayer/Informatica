@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3860423942754120231}
   m_Layer: 8
   m_Name: Bibi
-  m_TagString: Untagged
+  m_TagString: Bibi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0732e86971d8c14794e679882e3f425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 2602209735187026108, guid: cfd50e6ca19ebcd4eb58d011223260d3, type: 3}
   moveSpeed: 5
   jumpHeight: 10
   left: 276
@@ -159,15 +158,13 @@ MonoBehaviour:
   jump: 273
   groundCheckPoint: {fileID: 4762581990035636728}
   isOnGround: 0
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.25
   groundCheckLayerMask:
     serializedVersion: 2
     m_Bits: 64
   boboCheckLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  isOnBobo: 0
-  bibi: {fileID: 5644945213130180800}
   spawnPos: {x: 0, y: 0}
 --- !u!1 &7657138939245565611
 GameObject:
