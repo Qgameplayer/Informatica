@@ -371,75 +371,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &346752540 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5644945213130180800, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-  m_PrefabInstance: {fileID: 1420359988}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &346752541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346752540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aace7f8a182d5764a92ae3b8b58b624d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bibiScript: {fileID: 346752543}
-  moveSpeed: 5
-  jumpHeight: 10
---- !u!114 &346752542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346752540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade97809ba3403d42a6be07a18b1537a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bibiScript: {fileID: 346752543}
-  left: 276
-  right: 275
-  up: 273
-  down: 274
---- !u!114 &346752543 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3860423942754120231, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-  m_PrefabInstance: {fileID: 1420359988}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346752540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0732e86971d8c14794e679882e3f425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &346752547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346752540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0715e4f958c401498fc35a23438fedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bibiScript: {fileID: 346752543}
-  groundCheckRadius: 0.25
-  groundCheckLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  boboCheckLayerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  groundCheckPoint: {fileID: 2020854449}
 --- !u!1 &514568690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,18 +955,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3860423942754120231, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      propertyPath: bibiInputScript
-      value: 
-      objectReference: {fileID: 346752542}
-    - target: {fileID: 3860423942754120231, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      propertyPath: bibiMovementScript
-      value: 
-      objectReference: {fileID: 346752541}
-    - target: {fileID: 3860423942754120231, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      propertyPath: bibiCollisionScript
-      value: 
-      objectReference: {fileID: 346752547}
     - target: {fileID: 5644945213130180800, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
       propertyPath: m_Name
       value: Bibi
@@ -1043,16 +962,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5644945213130180800, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 346752542}
-    - targetCorrespondingSourceObject: {fileID: 5644945213130180800, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 346752541}
-    - targetCorrespondingSourceObject: {fileID: 5644945213130180800, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 346752547}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
 --- !u!1001 &1422297895
 PrefabInstance:
@@ -1371,11 +1281,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2020854449 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4762581990035636728, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-  m_PrefabInstance: {fileID: 1420359988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &833649427355554566
 PrefabInstance:
   m_ObjectHideFlags: 0
