@@ -22,10 +22,14 @@ public class BibiScript : MonoBehaviour
 
     internal GameObject spike;
 
+    internal GameObject ladder;
+
     internal Rigidbody2D rb;
     
     private GameObject bibi;
     public Vector2 spawnPos;
+
+    internal bool isClimbing;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +44,33 @@ public class BibiScript : MonoBehaviour
 
         spike = GameObject.FindWithTag("Spike");
 
+        ladder = GameObject.FindWithTag("Ladder");
+
     }
 
     // Update is called once per frame
     void Update()
     {
         MovementManager();
+
+        if (bibiInputScript.isUpPressed && bibiCollisionScript.isNearLadder)
+        {
+            isClimbing = true;
+        }
+        while (isClimbing)
+        {
+            if (bibiInputScript.isUpPressed)
+            {
+                bibiMovementScript.ClimbUp();
+            }
+            else if (bibiInputScript.isDownPressed)
+            {
+                bibiMovementScript.ClimbDown();
+            }
+        }
+
+        Debug.Log(isClimbing);
+
     }
 
     private void MovementManager()

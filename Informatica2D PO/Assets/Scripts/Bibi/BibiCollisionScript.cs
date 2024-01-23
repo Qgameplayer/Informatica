@@ -17,6 +17,8 @@ public class BibiCollisionScript : MonoBehaviour
     [SerializeField] private LayerMask boboCheckLayerMask;
     [SerializeField] private Transform groundCheckPoint;
 
+    internal bool isNearLadder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,4 +39,26 @@ public class BibiCollisionScript : MonoBehaviour
             bibiScript.logicScript.HandlePlayerDeath();
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+    
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == bibiScript.ladder)
+        {
+            isNearLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject == bibiScript.ladder)
+        {
+            isNearLadder = false;
+        }
+    }
+
 }

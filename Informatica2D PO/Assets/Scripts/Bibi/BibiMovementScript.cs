@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BibiMovementScript : MonoBehaviour
@@ -8,6 +9,8 @@ public class BibiMovementScript : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
+
+    [SerializeField] private float climbSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,12 @@ public class BibiMovementScript : MonoBehaviour
         {
             Jump();
         }
+
+        if (bibiScript.isClimbing)
+        {
+            bibiScript.rb.gravityScale = 0;
+        }
+        else { bibiScript.rb.gravityScale = 5; }
     }
 
     private void MoveBibiLeft()
@@ -57,4 +66,13 @@ public class BibiMovementScript : MonoBehaviour
         bibiScript.rb.velocity = new Vector2(bibiScript.rb.velocity.x, jumpHeight);
     }
 
+    internal void ClimbUp()
+    {
+        bibiScript.rb.velocity = new Vector2(bibiScript.rb.velocity.x, climbSpeed);
+    }
+
+    internal void ClimbDown()
+    {
+        bibiScript.rb.velocity = new Vector2(bibiScript.rb.velocity.x, -climbSpeed);
+    }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Spike
   - Bibi
   - Logic
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Spike
   - Bibi
   - Bobo
-  - 
+  - Ladder
   - 
   - 
   - 
