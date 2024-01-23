@@ -29,8 +29,6 @@ public class BibiScript : MonoBehaviour
     private GameObject bibi;
     public Vector2 spawnPos;
 
-    internal bool isClimbing;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,25 +50,6 @@ public class BibiScript : MonoBehaviour
     void Update()
     {
         MovementManager();
-
-        if (bibiInputScript.isUpPressed && bibiCollisionScript.isNearLadder)
-        {
-            isClimbing = true;
-        }
-        while (isClimbing)
-        {
-            if (bibiInputScript.isUpPressed)
-            {
-                bibiMovementScript.ClimbUp();
-            }
-            else if (bibiInputScript.isDownPressed)
-            {
-                bibiMovementScript.ClimbDown();
-            }
-        }
-
-        Debug.Log(isClimbing);
-
     }
 
     private void MovementManager()
@@ -81,11 +60,6 @@ public class BibiScript : MonoBehaviour
             logicScript.HandlePlayerDeath();
         }
 
-    }
-
-    private void ladderClimbing()
-    {
-        
     }
 
 }
