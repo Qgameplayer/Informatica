@@ -22,12 +22,4 @@ public class SpikeScript : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject == bibi)
-        {
-            logicScript.HandlePlayerDeath();
-        }
-    }
-
 }

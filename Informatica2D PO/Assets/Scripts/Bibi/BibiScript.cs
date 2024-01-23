@@ -17,8 +17,10 @@ public class BibiScript : MonoBehaviour
     [SerializeField]
     internal BibiCollisionScript bibiCollisionScript;
 
-    LogicScript logicScript;
+    internal LogicScript logicScript;
     private GameObject logic;
+
+    internal GameObject spike;
 
     internal Rigidbody2D rb;
     
@@ -28,13 +30,15 @@ public class BibiScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bibi = GameObject.FindWithTag("Bibi");
-        
+        bibi = this.gameObject;
+
         rb = GetComponent<Rigidbody2D>();
         spawnPos = transform.position;
 
         logic = GameObject.FindWithTag("Logic");
         logicScript = logic.GetComponent<LogicScript>();
+
+        spike = GameObject.FindWithTag("Spike");
 
     }
 

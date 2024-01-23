@@ -28,6 +28,13 @@ public class BibiCollisionScript : MonoBehaviour
     {
         isOnGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask);
         isOnBobo = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, boboCheckLayerMask);
-        Debug.Log(isOnGround);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == bibiScript.spike)
+        {
+            bibiScript.logicScript.HandlePlayerDeath();
+        }
     }
 }
