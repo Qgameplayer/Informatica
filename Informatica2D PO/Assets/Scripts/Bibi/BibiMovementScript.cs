@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BibiMovementScript : MonoBehaviour
 {
@@ -10,33 +11,83 @@ public class BibiMovementScript : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
 
+    [SerializeField] private float climbSpeedY;
+    [SerializeField] private float climbSpeedX;
+
+    Vector2 moveDirection;
+    Vector2 location;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (bibiScript.bibiInputScript.isLeftPressed)
+        if (bibiScript.stateManager() == "CLIMBING")
         {
-            MoveBibiLeft();
-        }
-        else if (bibiScript.bibiInputScript.isRightPressed)
-        {
-            MoveBibiRight();
-        }
-        else
-        {
-            StopMovement();
-        }
 
-        if (bibiScript.bibiInputScript.isUpPressed && (bibiScript.bibiCollisionScript.isOnGround || bibiScript.bibiCollisionScript.isOnBobo))
-        {
-            Jump();
+            bibiScript.rb.gravityScale = 0;
+            bibiScript.rb.velocity = Vector2.zero;
+
+            Debug.Log(location);
+            Debug.Log(moveDirection);
+            if (bibiScript.bibiInputScript.isUpPressed)
+            {
+                ClimbUp();
+                location += moveDirection;
+            }
+
+            if (bibiScript.bibiInputScript.isDownPressed)
+            {
+                ClimbDown();
+                location += moveDirection;
+            }
+
+            if (bibiScript.bibiInputScript.isLeftPressed)
+            {
+                ClimbLeft();
+                location += moveDirection;
+            }
+
+            if (bibiScript.bibiInputScript.isRightPressed)
+            {
+                ClimbRight();
+                location += moveDirection;
+            }
         }
     }
+
+    void FixedUpdate()
+    {
+        switch (bibiScript.stateManager())
+        {
+            case "MOVING":
+            case "JUMPING":
+            case "IDLE":
+                bibiScript.rb.gravityScale = 4;
+
+                if (bibiScript.bibiInputScript.isLeftPressed)
+                {
+                    MoveBibiLeft();
+                }
+                else if (bibiScript.bibiInputScript.isRightPressed)
+                {
+                    MoveBibiRight();
+                }
+                else
+                {
+                    StopMovement();
+                }
+
+                if (bibiScript.stateManager() == "JUMPING")
+                {
+                    Jump();
+                }
+                break;
+        }
+    }
+
 
     private void MoveBibiLeft()
     {
@@ -58,4 +109,25 @@ public class BibiMovementScript : MonoBehaviour
         bibiScript.rb.velocity = new Vector2(bibiScript.rb.velocity.x, jumpHeight);
     }
 
+    private void ClimbDown()
+    {
+        bibiScript.bibi.transform.position += new Vector3(0, -climbSpeedY * Time.deltaTime, 0);
+    }
+    private void ClimbUp()
+    {
+        bibiScript.bibi.transform.position += new Vector3(0, climbSpeedY * Time.deltaTime, 0);
+    }
+
+    private void ClimbLeft()
+    {
+        bibiScript.bibi.transform.position += new Vector3(-climbSpeedX * Time.deltaTime, 0, 0);
+    }
+
+    private void ClimbRight()
+    {
+        bibiScript.bibi.transform.position += new Vector3(climbSpeedX * Time.deltaTime, 0, 0);
+    }
+
+
 }
+

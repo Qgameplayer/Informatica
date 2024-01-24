@@ -1003,6 +1003,14 @@ PrefabInstance:
       propertyPath: climbSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 463426761500218474, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
+      propertyPath: climbSpeedX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 463426761500218474, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
+      propertyPath: climbSpeedY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3543556801313878603, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.52
@@ -1047,6 +1055,14 @@ PrefabInstance:
       propertyPath: ladder
       value: 
       objectReference: {fileID: 2096207639}
+    - target: {fileID: 4433081902410981033, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 12e140ce8c1851f4082369550a9ccb62, type: 2}
+    - target: {fileID: 4844200100390424806, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5644945213130180800, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
       propertyPath: m_Name
       value: Bibi

@@ -25,9 +25,11 @@ public class BibiScript : MonoBehaviour
     internal GameObject ladder;
 
     internal Rigidbody2D rb;
-    
-    private GameObject bibi;
+
+    internal GameObject bibi;
     public Vector2 spawnPos;
+
+    internal Vector2 location;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,8 @@ public class BibiScript : MonoBehaviour
     void Update()
     {
         MovementManager();
+        stateManager();
+        location = transform.position;
     }
 
     private void MovementManager()
@@ -60,6 +64,38 @@ public class BibiScript : MonoBehaviour
             logicScript.HandlePlayerDeath();
         }
 
+    }
+
+    internal bool jumpAbleGround()
+    {
+        if (bibiCollisionScript.isOnGround || bibiCollisionScript.isOnBobo)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    internal string stateManager()
+    {
+        string status;
+        if (bibiCollisionScript.isNearLadder) //&& bibiInputScript.isUpPressed
+        {
+            status = "CLIMBING";
+        }
+
+        else if (bibiInputScript.isUpPressed && jumpAbleGround())
+        {
+            status = "JUMPING";
+        }
+
+        else if (bibiInputScript.isLeftPressed || bibiInputScript.isRightPressed)
+        {
+            status = "MOVING";
+        }
+
+        else { status = "IDLE"; }
+        //Debug.Log(status);
+        return status;
     }
 
 }
