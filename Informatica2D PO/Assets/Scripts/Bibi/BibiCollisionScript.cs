@@ -51,6 +51,11 @@ public class BibiCollisionScript : MonoBehaviour
         {
             bibiScript.logicScript.HandlePlayerDeath();
         }
+
+        if (collision.gameObject == bibiScript.water)
+        {
+            bibiScript.logicScript.HandlePlayerDeath();
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
