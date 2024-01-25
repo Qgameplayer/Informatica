@@ -56,7 +56,6 @@ public class BibiScript : MonoBehaviour
     void Update()
     {
         MovementManager();
-        stateManager();
         location = transform.position;
     }
 
@@ -70,7 +69,7 @@ public class BibiScript : MonoBehaviour
 
     }
 
-    internal bool jumpAbleGround()
+    internal bool JumpAbleGround()
     {
         if (bibiCollisionScript.isOnGround || bibiCollisionScript.isOnBobo)
         {
@@ -79,15 +78,15 @@ public class BibiScript : MonoBehaviour
         return false;
     }
 
-    internal string stateManager()
+    internal string StateManager()
     {
         string status;
-        if (bibiCollisionScript.isNearLadder) //&& bibiInputScript.isUpPressed
+        if (bibiCollisionScript.isNearLadder)
         {
             status = "CLIMBING";
         }
 
-        else if (bibiInputScript.isUpPressed && jumpAbleGround())
+        else if (bibiInputScript.isUpPressed && JumpAbleGround())
         {
             status = "JUMPING";
         }

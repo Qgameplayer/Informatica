@@ -24,7 +24,7 @@ public class BibiMovementScript : MonoBehaviour
 
     private void Update()
     {
-        if (bibiScript.stateManager() == "CLIMBING")
+        if (bibiScript.StateManager() == "CLIMBING")
         {
 
             bibiScript.rb.gravityScale = 0;
@@ -55,7 +55,7 @@ public class BibiMovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        switch (bibiScript.stateManager())
+        switch (bibiScript.StateManager())
         {
             case "MOVING":
             case "JUMPING":
@@ -75,7 +75,7 @@ public class BibiMovementScript : MonoBehaviour
                     StopMovement();
                 }
 
-                if (bibiScript.stateManager() == "JUMPING")
+                if (bibiScript.StateManager() == "JUMPING")
                 {
                     Jump();
                 }
