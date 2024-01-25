@@ -33,22 +33,22 @@ public class BibiMovementScript : MonoBehaviour
 
             Debug.Log(location);
             Debug.Log(moveDirection);
-            if (bibiScript.bibiInputScript.isUpPressed && !bibiScript.bibiCollisionScript.upObject)
+            if (bibiScript.bibiInputScript.isUpPressed && !bibiScript.bibiCollisionScript.CanMoveUp())
             {
                 ClimbUp();
             }
 
-            if (bibiScript.bibiInputScript.isDownPressed && !bibiScript.bibiCollisionScript.downObject)
+            if (bibiScript.bibiInputScript.isDownPressed && !bibiScript.bibiCollisionScript.CanMoveDown())
             {
                 ClimbDown();
             }
 
-            if (bibiScript.bibiInputScript.isLeftPressed && bibiScript.bibiCollisionScript.canMoveLeft())
+            if (bibiScript.bibiInputScript.isLeftPressed && bibiScript.bibiCollisionScript.CanMoveLeft())
             {
                 ClimbLeft();
             }
 
-            if (bibiScript.bibiInputScript.isRightPressed && bibiScript.bibiCollisionScript.canMoveRight())
+            if (bibiScript.bibiInputScript.isRightPressed && bibiScript.bibiCollisionScript.CanMoveRight())
             {
                 ClimbRight();
             }

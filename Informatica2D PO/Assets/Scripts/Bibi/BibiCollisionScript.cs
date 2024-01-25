@@ -74,7 +74,7 @@ public class BibiCollisionScript : MonoBehaviour
         }
     }
 
-    internal bool canMoveRight()
+    internal bool CanMoveRight()
     {
         if(Physics2D.Raycast(transform.position + new Vector3 (0, .5f, 0), transform.right, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask) || Physics2D.Raycast(transform.position - new Vector3 (0, .5f, 0), transform.right, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask)){
             return false;
@@ -82,9 +82,27 @@ public class BibiCollisionScript : MonoBehaviour
         else { return true; }
     }
 
-    internal bool canMoveLeft()
+    internal bool CanMoveLeft()
     {
         if(Physics2D.Raycast(transform.position + new Vector3(0, .5f, 0), transform.right * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask) || Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), transform.right * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask))
+        {
+            return false;
+        }
+        else { return true; }
+    }
+
+    internal bool CanMoveUp()
+    {
+        if (Physics2D.Raycast(transform.position + new Vector3(.5f, 0, 0), transform.up, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask) || Physics2D.Raycast(transform.position - new Vector3(.5f, 0, 0), transform.up, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask))
+        {
+            return false;
+        }
+        else { return true; }
+    }
+
+    internal bool CanMoveDown()
+    {
+        if (Physics2D.Raycast(transform.position + new Vector3(.5f, 0, 0), transform.up * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask) || Physics2D.Raycast(transform.position - new Vector3(.5f, 0, 0), transform.up * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask))
         {
             return false;
         }
