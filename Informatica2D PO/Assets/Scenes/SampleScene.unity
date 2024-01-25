@@ -1047,10 +1047,6 @@ PrefabInstance:
       propertyPath: ladder
       value: 
       objectReference: {fileID: 2096207639}
-    - target: {fileID: 3585430827105959814, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      propertyPath: rayCastDistance
-      value: 0.55
-      objectReference: {fileID: 0}
     - target: {fileID: 4844200100390424806, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -1452,7 +1448,7 @@ Transform:
   m_GameObject: {fileID: 2096207639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6, y: -2.66, z: 0}
+  m_LocalPosition: {x: -3.01, y: -2.66, z: 0}
   m_LocalScale: {x: 1, y: 2.8375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

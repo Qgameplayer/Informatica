@@ -213,6 +213,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   groundCheckPoint: {fileID: 4762581990035636728}
+  rayCastDistance: 0.55
 --- !u!1 &7657138939245565611
 GameObject:
   m_ObjectHideFlags: 0

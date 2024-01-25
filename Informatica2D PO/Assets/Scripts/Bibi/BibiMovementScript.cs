@@ -48,7 +48,7 @@ public class BibiMovementScript : MonoBehaviour
                 ClimbLeft();
             }
 
-            if (bibiScript.bibiInputScript.isRightPressed && !bibiScript.bibiCollisionScript.rightObject)
+            if (bibiScript.bibiInputScript.isRightPressed && bibiScript.bibiCollisionScript.canMoveRight())
             {
                 ClimbRight();
             }
