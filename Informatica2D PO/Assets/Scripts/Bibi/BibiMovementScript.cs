@@ -29,31 +29,28 @@ public class BibiMovementScript : MonoBehaviour
 
             bibiScript.rb.gravityScale = 0;
             bibiScript.rb.velocity = Vector2.zero;
+            //transform.position = new Vector3(bibiScript.ladder.transform.position.x, transform.position.y, transform.position.z);
 
             Debug.Log(location);
             Debug.Log(moveDirection);
-            if (bibiScript.bibiInputScript.isUpPressed)
+            if (bibiScript.bibiInputScript.isUpPressed && !bibiScript.bibiCollisionScript.upObject)
             {
                 ClimbUp();
-                location += moveDirection;
             }
 
-            if (bibiScript.bibiInputScript.isDownPressed)
+            if (bibiScript.bibiInputScript.isDownPressed && !bibiScript.bibiCollisionScript.downObject)
             {
                 ClimbDown();
-                location += moveDirection;
             }
 
-            if (bibiScript.bibiInputScript.isLeftPressed)
+            if (bibiScript.bibiInputScript.isLeftPressed && !bibiScript.bibiCollisionScript.leftObject)
             {
                 ClimbLeft();
-                location += moveDirection;
             }
 
-            if (bibiScript.bibiInputScript.isRightPressed)
+            if (bibiScript.bibiInputScript.isRightPressed && !bibiScript.bibiCollisionScript.rightObject)
             {
                 ClimbRight();
-                location += moveDirection;
             }
         }
     }

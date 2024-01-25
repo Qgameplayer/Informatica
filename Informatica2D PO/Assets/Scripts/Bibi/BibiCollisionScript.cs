@@ -17,7 +17,14 @@ public class BibiCollisionScript : MonoBehaviour
     [SerializeField] private LayerMask boboCheckLayerMask;
     [SerializeField] private Transform groundCheckPoint;
 
+    [SerializeField] private float rayCastDistance = 0.55f;
+
     internal bool isNearLadder;
+
+    internal bool rightObject;
+    internal bool leftObject;
+    internal bool upObject;
+    internal bool downObject;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +33,16 @@ public class BibiCollisionScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         isOnGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask);
         isOnBobo = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, boboCheckLayerMask);
+
+        upObject = Physics2D.Raycast(transform.position, transform.up, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask);
+        downObject = Physics2D.Raycast(transform.position, transform.up * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask);
+        rightObject = Physics2D.Raycast(transform.position, transform.right, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask);
+        leftObject = Physics2D.Raycast(transform.position, transform.right * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

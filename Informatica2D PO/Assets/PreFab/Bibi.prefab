@@ -190,6 +190,8 @@ MonoBehaviour:
   bibiScript: {fileID: 3860423942754120231}
   moveSpeed: 5
   jumpHeight: 10
+  climbSpeedY: 5
+  climbSpeedX: 5
 --- !u!114 &3585430827105959814
 MonoBehaviour:
   m_ObjectHideFlags: 0
