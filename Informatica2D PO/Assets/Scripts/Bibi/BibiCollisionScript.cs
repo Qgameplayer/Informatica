@@ -82,4 +82,13 @@ public class BibiCollisionScript : MonoBehaviour
         else { return true; }
     }
 
+    internal bool canMoveLeft()
+    {
+        if(Physics2D.Raycast(transform.position + new Vector3(0, .5f, 0), transform.right * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask) || Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), transform.right * -1, rayCastDistance, groundCheckLayerMask | boboCheckLayerMask))
+        {
+            return false;
+        }
+        else { return true; }
+    }
+
 }
