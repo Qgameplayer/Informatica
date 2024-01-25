@@ -24,6 +24,8 @@ public class BibiScript : MonoBehaviour
 
     internal GameObject ladder;
 
+    internal GameObject water;
+
     internal Rigidbody2D rb;
 
     internal GameObject bibi;
@@ -45,6 +47,8 @@ public class BibiScript : MonoBehaviour
         spike = GameObject.FindWithTag("Spike");
 
         ladder = GameObject.FindWithTag("Ladder");
+
+        water = GameObject.FindWithTag("Water");
 
     }
 
