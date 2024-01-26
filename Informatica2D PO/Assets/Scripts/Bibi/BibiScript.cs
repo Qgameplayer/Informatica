@@ -33,6 +33,8 @@ public class BibiScript : MonoBehaviour
 
     internal Vector2 location;
 
+    private bool isClimbing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,8 @@ public class BibiScript : MonoBehaviour
     {
         MovementManager();
         location = transform.position;
+
+        Debug.Log(StateManager());
     }
 
     private void MovementManager()
@@ -80,25 +84,33 @@ public class BibiScript : MonoBehaviour
 
     internal string StateManager()
     {
-        string status;
         if (bibiCollisionScript.isNearLadder)
         {
-            status = "CLIMBING";
+            if (bibiInputScript.isUpPressed && !isClimbing) // Check of de speler omhoog drukt en niet al aan het klimmen is
+            {
+                isClimbing = true; // Zet de isClimbing variabele op true zodat we weten dat de speler aan het klimmen is
+                return "CLIMBING";
+            }
+            else if (isClimbing == true)
+            {
+                return "CLIMBING";
+            }
         }
-
-        else if (bibiInputScript.isUpPressed && JumpAbleGround())
+        else
         {
-            status = "JUMPING";
+            isClimbing = false;
+            if (bibiInputScript.isUpPressed && JumpAbleGround())
+            {
+                return "JUMPING";
+            }
+            else if (bibiInputScript.isLeftPressed || bibiInputScript.isRightPressed)
+            {
+                return "MOVING";
+            }
         }
 
-        else if (bibiInputScript.isLeftPressed || bibiInputScript.isRightPressed)
-        {
-            status = "MOVING";
-        }
 
-        else { status = "IDLE"; }
-        //Debug.Log(status);
-        return status;
+        return "IDLE";
     }
 
 }
