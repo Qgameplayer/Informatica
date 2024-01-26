@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 28701944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.77, y: -3.62, z: 0}
+  m_LocalPosition: {x: 5.72, y: -3.65, z: 0}
   m_LocalScale: {x: 2.1375, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1650,9 +1650,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6779176045340532026, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8063294723555549293, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
       propertyPath: m_Name
       value: Bobo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279046714235771942, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8279046714235771942, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
       propertyPath: m_LocalPosition.x
