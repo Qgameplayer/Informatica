@@ -12,16 +12,20 @@ public class BibiInputScript : MonoBehaviour
     internal bool isRightPressed;
     internal bool isUpPressed;
     internal bool isDownPressed;
+    internal bool isDoubleDownPressed;
 
     [SerializeField] private KeyCode left;
     [SerializeField] private KeyCode right;
     [SerializeField] private KeyCode up;
     [SerializeField] private KeyCode down;
 
+    private float lastPressTime;
+    public float doublePressTimeThreshold = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -51,5 +55,18 @@ public class BibiInputScript : MonoBehaviour
             isDownPressed = true;
         }
         else { isDownPressed = false; }
+
+        if (Input.GetKeyDown(down))
+        {
+            float currentTime = Time.time;
+
+            if (currentTime - lastPressTime < doublePressTimeThreshold)
+            {
+                isDoubleDownPressed = true;                
+            }
+
+            lastPressTime = currentTime;
+        }
+        else { isDoubleDownPressed = false; }
     }
 }

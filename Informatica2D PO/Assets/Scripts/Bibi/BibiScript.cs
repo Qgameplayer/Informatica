@@ -29,7 +29,7 @@ public class BibiScript : MonoBehaviour
     internal Rigidbody2D rb;
 
     internal GameObject bibi;
-    public Vector2 spawnPos;
+    internal Vector2 spawnPos;
 
     internal Vector2 location;
 
@@ -60,7 +60,7 @@ public class BibiScript : MonoBehaviour
         MovementManager();
         location = transform.position;
 
-        Debug.Log(StateManager());
+        //Debug.Log(StateManager());
     }
 
     private void MovementManager()
@@ -86,14 +86,22 @@ public class BibiScript : MonoBehaviour
     {
         if (bibiCollisionScript.isNearLadder)
         {
-            if (bibiInputScript.isUpPressed && !isClimbing) // Check of de speler omhoog drukt en niet al aan het klimmen is
+            if (bibiInputScript.isUpPressed && !isClimbing)
             {
-                isClimbing = true; // Zet de isClimbing variabele op true zodat we weten dat de speler aan het klimmen is
+                isClimbing = true;
                 return "CLIMBING";
             }
             else if (isClimbing == true)
             {
-                return "CLIMBING";
+                if (bibiInputScript.isDoubleDownPressed)
+                {
+                    isClimbing = false;
+                    return "IDLE";
+                }
+                else
+                {
+                    return "CLIMBING";
+                }
             }
         }
         else
