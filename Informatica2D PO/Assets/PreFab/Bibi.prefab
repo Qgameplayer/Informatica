@@ -157,7 +157,6 @@ MonoBehaviour:
   bibiInputScript: {fileID: 8883264177854829507}
   bibiMovementScript: {fileID: 463426761500218474}
   bibiCollisionScript: {fileID: 3585430827105959814}
-  spawnPos: {x: 0, y: 0}
 --- !u!114 &8883264177854829507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +174,7 @@ MonoBehaviour:
   right: 275
   up: 273
   down: 274
+  doublePressTimeThreshold: 0.2
 --- !u!114 &463426761500218474
 MonoBehaviour:
   m_ObjectHideFlags: 0

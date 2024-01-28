@@ -29,7 +29,7 @@ public class BibiMovementScript : MonoBehaviour
 
             bibiScript.rb.gravityScale = 0;
             bibiScript.rb.velocity = Vector2.zero;
-            //transform.position = new Vector3(bibiScript.ladder.transform.position.x, transform.position.y, transform.position.z);
+            transform.position = new Vector3(bibiScript.ladder.transform.position.x, transform.position.y, transform.position.z);
 
             if (bibiScript.bibiInputScript.isUpPressed && bibiScript.bibiCollisionScript.CanMoveUp())
             {
@@ -43,12 +43,12 @@ public class BibiMovementScript : MonoBehaviour
 
             if (bibiScript.bibiInputScript.isLeftPressed && bibiScript.bibiCollisionScript.CanMoveLeft())
             {
-                ClimbLeft();
+                //ClimbLeft();
             }
 
             if (bibiScript.bibiInputScript.isRightPressed && bibiScript.bibiCollisionScript.CanMoveRight())
             {
-                ClimbRight();
+                //ClimbRight();
             }
         }
     }

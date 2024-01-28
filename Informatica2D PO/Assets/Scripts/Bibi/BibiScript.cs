@@ -21,9 +21,7 @@ public class BibiScript : MonoBehaviour
     private GameObject logic;
 
     internal GameObject spike;
-
     internal GameObject ladder;
-
     internal GameObject water;
 
     internal Rigidbody2D rb;

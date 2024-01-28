@@ -20,7 +20,7 @@ public class BibiInputScript : MonoBehaviour
     [SerializeField] private KeyCode down;
 
     private float lastPressTime;
-    public float doublePressTimeThreshold = 0.5f;
+    [SerializeField] internal float doublePressTimeThreshold = 0.2f;
 
     // Start is called before the first frame update
     void Start()
