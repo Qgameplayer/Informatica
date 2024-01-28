@@ -5,6 +5,16 @@ using UnityEngine;
 public class BoboScript : MonoBehaviour
 {
 
+    [SerializeField]
+    internal BoboInputScript boboInputScript;
+
+    [SerializeField]
+    internal BobomovementScript boboMovementScript;
+
+    [SerializeField]
+    internal BobocollisionScript boboCollisionScript;
+
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpHeight;
 
@@ -43,11 +53,11 @@ public class BoboScript : MonoBehaviour
         isOnBibi = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, bibiCheckLayerMask);
         
 
-        if (Input.GetKey(left))
+        if (boboInputScript.isLeftPressed)
         {
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
         }
-        else if (Input.GetKey(right))
+        else if (boboInputScript.isRightPressed)
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
         }
@@ -56,7 +66,7 @@ public class BoboScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-        if (Input.GetKey(jump) && isOnGround)
+        if (boboInputScript.isUpPressed && isOnGround)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }

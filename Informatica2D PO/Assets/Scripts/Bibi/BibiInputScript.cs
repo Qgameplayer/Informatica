@@ -11,6 +11,7 @@ public class BibiInputScript : MonoBehaviour
     internal bool isLeftPressed;
     internal bool isRightPressed;
     internal bool isUpPressed;
+    internal bool isDoubleUpPressed;
     internal bool isDownPressed;
     internal bool isDoubleDownPressed;
 
@@ -50,6 +51,19 @@ public class BibiInputScript : MonoBehaviour
         }
         else { isUpPressed = false; }
 
+        if (Input.GetKeyDown(up))
+        {
+            float currentTime = Time.time;
+
+            if (currentTime - lastPressTime < doublePressTimeThreshold)
+            {
+                isDoubleUpPressed = true;
+            }
+
+            lastPressTime = currentTime;
+        }
+        else { isDoubleUpPressed = false; }
+
         if (Input.GetKey(down))
         {
             isDownPressed = true;
@@ -62,11 +76,13 @@ public class BibiInputScript : MonoBehaviour
 
             if (currentTime - lastPressTime < doublePressTimeThreshold)
             {
-                isDoubleDownPressed = true;                
+                isDoubleDownPressed = true;
             }
 
             lastPressTime = currentTime;
         }
         else { isDoubleDownPressed = false; }
+
     }
+
 }

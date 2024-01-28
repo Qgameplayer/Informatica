@@ -58,7 +58,8 @@ public class BibiScript : MonoBehaviour
         MovementManager();
         location = transform.position;
 
-        //Debug.Log(StateManager());
+        Debug.Log("omhoog = " + bibiInputScript.isUpPressed);
+        Debug.Log("dubbel omhoog = " + bibiInputScript.isDoubleDownPressed);
     }
 
     private void MovementManager()
@@ -96,10 +97,12 @@ public class BibiScript : MonoBehaviour
                     isClimbing = false;
                     return "IDLE";
                 }
-                else
+                else if (bibiInputScript.isDoubleUpPressed)
                 {
-                    return "CLIMBING";
+                    isClimbing = false;
+                    return "JUMPING";
                 }
+                else { return "CLIMBING"; }
             }
         }
         else

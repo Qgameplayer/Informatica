@@ -1242,10 +1242,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bibi
       objectReference: {fileID: 0}
-    - target: {fileID: 8883264177854829507, guid: a2346e236c7ccbe43841b28c309c3a63, type: 3}
-      propertyPath: doublePressTimeThreshold
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
