@@ -32,8 +32,17 @@ public class BibiCollisionScript : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (bibiScript.StateManager() == "CLIMBING")
+        {
+            Physics2D.IgnoreLayerCollision(8, 6, true);
+        }
+        else { Physics2D.IgnoreLayerCollision(8, 6, false); }
+    }
+
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         isOnGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask);
         isOnBobo = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, boboCheckLayerMask);

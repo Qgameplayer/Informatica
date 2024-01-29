@@ -418,7 +418,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.34531865, g: 0.754717, b: 0.5326909, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -552,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 514568690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: -2.03, z: 0}
+  m_LocalPosition: {x: -1.71, y: -2.03, z: 0}
   m_LocalScale: {x: 3.1477249, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -695,6 +696,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51696aed4c297114fa2eb682a05a9be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &523509627
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +959,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f007506fc78ee408d6fa767a9f11d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boboScript: {fileID: 1380535308}
+  groundCheckPoint: {fileID: 1745995658}
+  isOnGround: 0
+  groundCheckRadius: 0.25
+  groundCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  bibiCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  isOnBibi: 0
 --- !u!114 &1380535315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,7 +1211,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1159492723380975062, guid: 077d84a11ff130c4d940545384bf5e34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.48000002
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 1159492723380975062, guid: 077d84a11ff130c4d940545384bf5e34, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1234,6 +1258,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077d84a11ff130c4d940545384bf5e34, type: 3}
+--- !u!4 &1745995658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8252651214322332152, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+  m_PrefabInstance: {fileID: 833649427355554566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1903953645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1635,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8063294723555549293, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
       propertyPath: m_Name
+      value: Bobo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063294723555549293, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: m_TagString
       value: Bobo
       objectReference: {fileID: 0}
     - target: {fileID: 8279046714235771942, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}

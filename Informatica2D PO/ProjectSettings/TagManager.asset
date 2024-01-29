@@ -9,6 +9,7 @@ TagManager:
   - Logic
   - Ladder
   - Water
+  - Bobo
   layers:
   - Default
   - TransparentFX

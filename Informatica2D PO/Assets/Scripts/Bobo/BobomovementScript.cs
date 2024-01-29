@@ -33,7 +33,7 @@ public class BobomovementScript : MonoBehaviour
             StopMovement();
         }
 
-        if (boboScript.boboInputScript.isUpPressed && boboScript.isOnGround)
+        if (boboScript.boboInputScript.isUpPressed && boboScript.boboCollisionScript.isOnGround)
         {
             Jump();
         }
