@@ -55,11 +55,9 @@ public class BibiScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         MovementManager();
         location = transform.position;
-
-        Debug.Log("omhoog = " + bibiInputScript.isUpPressed);
-        Debug.Log("dubbel omhoog = " + bibiInputScript.isDoubleDownPressed);
     }
 
     private void MovementManager()
@@ -85,23 +83,19 @@ public class BibiScript : MonoBehaviour
     {
         if (bibiCollisionScript.isNearLadder)
         {
-            if (bibiInputScript.isUpPressed && !isClimbing)
+            if (bibiInputScript.isUpPressed && !isClimbing && !(bibiInputScript.isLeftPressed || bibiInputScript.isRightPressed))
             {
                 isClimbing = true;
                 return "CLIMBING";
             }
             else if (isClimbing == true)
             {
-                if (bibiInputScript.isDoubleDownPressed)
+                if (bibiInputScript.isDoubleDownPressed || bibiInputScript.isLeftPressed || bibiInputScript.isRightPressed)
                 {
                     isClimbing = false;
-                    return "IDLE";
+                    return "MOVING";
                 }
-                else if (bibiInputScript.isDoubleUpPressed)
-                {
-                    isClimbing = false;
-                    return "JUMPING";
-                }
+
                 else { return "CLIMBING"; }
             }
         }

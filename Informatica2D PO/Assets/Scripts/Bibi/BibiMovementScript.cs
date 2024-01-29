@@ -13,9 +13,6 @@ public class BibiMovementScript : MonoBehaviour
 
     [SerializeField] private float climbSpeedY;
     [SerializeField] private float climbSpeedX;
-
-    Vector2 moveDirection;
-    Vector2 location;
     // Start is called before the first frame update
     void Start()
     {
