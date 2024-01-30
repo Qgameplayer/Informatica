@@ -19,7 +19,11 @@ public class BoboScript : MonoBehaviour
 
     internal Rigidbody2D rb;
 
-    
+
+    [SerializeField] private float pickupRange = 2f;
+    [SerializeField] private LayerMask pickupLayer;
+    private GameObject heldBlock;
+    private GameObject inventory;
 
 
     // Start is called before the first frame update
@@ -34,9 +38,29 @@ public class BoboScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        HandlePickup();
     }
 
+    void HandlePickup()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, .5f, 0), Vector2.right * transform.localScale.x, pickupRange, pickupLayer);
+            RaycastHit2D hit2 = Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), Vector2.right * transform.localScale.x, pickupRange, pickupLayer);
 
+            if (hit.collider != null)
+            {
+                // Pickup the block
+                heldBlock = hit.collider.gameObject;
+                heldBlock.SetActive(false);
+            }
 
+            else if (hit2.collider != null) 
+            {
+                heldBlock = hit2.collider.gameObject;
+                heldBlock.SetActive(false);
+            }
+        }
+
+    }
 }
