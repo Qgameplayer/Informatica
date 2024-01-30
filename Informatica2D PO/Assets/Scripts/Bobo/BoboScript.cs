@@ -19,6 +19,8 @@ public class BoboScript : MonoBehaviour
 
     internal Rigidbody2D rb;
 
+    private Canvas canvas;
+
 
     [SerializeField] private float pickupRange = 2f;
     [SerializeField] private LayerMask pickupLayer;
@@ -33,12 +35,15 @@ public class BoboScript : MonoBehaviour
 
         logic = GameObject.FindWithTag("Logic");
         logicScript = logic.GetComponent<LogicScript>();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         HandlePickup();
+
     }
 
     void HandlePickup()
