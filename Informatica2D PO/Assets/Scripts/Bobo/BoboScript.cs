@@ -30,6 +30,10 @@ public class BoboScript : MonoBehaviour
     private int currentSlot = 0;
 
     public Image[] inventorySlots;
+    private GameObject[] inventoryBlocks;
+    private GameObject[] inventorySlotObjects;
+
+    private bool isInventoryActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,15 +43,27 @@ public class BoboScript : MonoBehaviour
         logic = GameObject.FindWithTag("Logic");
         logicScript = logic.GetComponent<LogicScript>();
 
-
+        inventoryBlocks = new GameObject[3];
+        inventorySlotObjects = new GameObject[3];
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isInventoryActive)
+        {
+            inventory.SetActive(true);
+        }
+        else
+        {
+            inventory.SetActive(false);
+        }
+
+
         HandlePickup();
         HandleInventory();
         HandleDrop();
+        Debug.Log(inventoryBlocks[currentSlot]);
     }
 
     void HandlePickup()
@@ -59,54 +75,68 @@ public class BoboScript : MonoBehaviour
 
             if (hit.collider != null)
             {
-                // Pickup the block
-                heldBlock = hit.collider.gameObject;
-                heldBlock.SetActive(false);
+                if (inventoryBlocks[currentSlot] == null)
+                {
+                    AddToInventory(hit.collider.gameObject);
+                    hit.collider.gameObject.SetActive(false);
+                }
+                
             }
 
             else if (hit2.collider != null)
             {
-                heldBlock = hit2.collider.gameObject;
-                heldBlock.SetActive(false);
+                AddToInventory(hit2.collider.gameObject);
+                hit2.collider.gameObject.SetActive(false);
+
+                if (inventoryBlocks[currentSlot] == null)
+                {
+                    AddToInventory(hit.collider.gameObject);
+                    hit.collider.gameObject.SetActive(false);
+                }
             }
         }
 
+    }
+
+    private void AddToInventory(GameObject block)
+    {
+        if (currentSlot < 3 && inventoryBlocks[currentSlot] == null)
+        {
+            inventoryBlocks[currentSlot] = block;
+            UpdateInventoryUI();
+        }
     }
 
     private void HandleInventory()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            inventory.SetActive(!inventory.activeSelf);
+            isInventoryActive = !isInventoryActive;
 
-            if (inventory.activeSelf)
+            if (isInventoryActive)
             {
                 lastInventoryInputTime = Time.time;
             }
         }
 
-        if (inventory.activeSelf && Time.time - lastInventoryInputTime > 5f)
+        if (isInventoryActive && Time.time - lastInventoryInputTime > 5f)
         {
-            Debug.Log("test");
-            inventory.SetActive(false);
+            isInventoryActive = false;
         }
 
-        if (inventory.activeSelf)
+        if (isInventoryActive)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 currentSlot = 0;
-                Debug.Log(currentSlot);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 currentSlot = 1;
-                Debug.Log(currentSlot);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 currentSlot = 2;
-                Debug.Log(currentSlot);
             }
         }
         UpdateInventoryUI();
@@ -114,18 +144,31 @@ public class BoboScript : MonoBehaviour
 
     private void HandleDrop()
     {
-        Debug.Log(inventory.activeSelf);
-        if (Input.GetKeyDown(KeyCode.I) && inventory.activeSelf && heldBlock != null && currentSlot < 3)
+        if (Input.GetKeyDown(KeyCode.I) && isInventoryActive && inventoryBlocks[currentSlot] != null)
         {
-            // Drop the block from the current inventory slot
-            heldBlock.transform.position = transform.position + Vector3.right * transform.localScale.x;
-            heldBlock.SetActive(true);
-            heldBlock = null;
+            GameObject blockToDrop = inventoryBlocks[currentSlot];
+            blockToDrop.transform.position = transform.position + Vector3.right * transform.localScale.x;
+            blockToDrop.SetActive(true);
+            inventoryBlocks[currentSlot] = null;
+
+            UpdateInventoryUI();
         }
     }
 
     private void UpdateInventoryUI()
     {
-        
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (i == currentSlot)
+            {
+                // Set the current slot to green
+                inventorySlots[i].color = Color.green;
+            }
+            else
+            {
+                // Set other slots to white
+                inventorySlots[i].color = Color.white;
+            }
+        }
     }
 }
