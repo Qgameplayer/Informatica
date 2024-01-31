@@ -778,7 +778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014171568, y: -0.042072773, z: -0.0005968256, w: 0.9990139}
+  m_LocalRotation: {x: -0.014171596, y: -0.04207281, z: -0.0005968273, w: 0.9990139}
   m_LocalPosition: {x: -4.8762174, y: -3.1297767, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1817,7 +1817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433995387}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014171568, y: -0.042072773, z: -0.0005968256, w: 0.9990139}
+  m_LocalRotation: {x: -0.014171596, y: -0.04207281, z: -0.0005968273, w: 0.9990139}
   m_LocalPosition: {x: -4.8762174, y: -3.1297767, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2081,7 +2081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1825761431
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2522,6 +2522,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6721574524598423558, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1825761430}
+    - target: {fileID: 6721574524598423558, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
       propertyPath: boboInputScript
       value: 
       objectReference: {fileID: 1380535315}
@@ -2537,6 +2541,22 @@ PrefabInstance:
       propertyPath: boboCollisionScript
       value: 
       objectReference: {fileID: 1380535314}
+    - target: {fileID: 6721574524598423558, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: inventorySlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721574524598423558, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: inventorySlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1099939724}
+    - target: {fileID: 6721574524598423558, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: inventorySlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 527206890}
+    - target: {fileID: 6721574524598423558, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
+      propertyPath: inventorySlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1650994298}
     - target: {fileID: 6779176045340532026, guid: 91bfb35ced16bc64e9a0daf4d85ff545, type: 3}
       propertyPath: m_Size.y
       value: 1
