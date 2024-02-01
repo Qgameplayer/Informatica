@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.Collections.AllocatorManager;
 
 public class BoboScript : MonoBehaviour
 {
@@ -23,15 +24,20 @@ public class BoboScript : MonoBehaviour
 
     [SerializeField] private float pickupRange = 2f;
     [SerializeField] private LayerMask pickupLayer;
+    [SerializeField] private LayerMask bibiLayer;
+
     private GameObject heldBlock;
     [SerializeField] private GameObject inventory;
 
     private float lastInventoryInputTime;
     private int currentSlot = 0;
 
+    private float selectedSlotScale = 1.2f;
+
     public Image[] inventorySlots;
+    private Sprite[] originalSprites;
     private GameObject[] inventoryBlocks;
-    private GameObject[] inventorySlotObjects;
+
 
     private bool isInventoryActive = false;
 
@@ -44,7 +50,11 @@ public class BoboScript : MonoBehaviour
         logicScript = logic.GetComponent<LogicScript>();
 
         inventoryBlocks = new GameObject[3];
-        inventorySlotObjects = new GameObject[3];
+        originalSprites = new Sprite[inventorySlots.Length];
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            originalSprites[i] = inventorySlots[i].sprite;
+        }
     }
 
     // Update is called once per frame
@@ -60,38 +70,38 @@ public class BoboScript : MonoBehaviour
         }
 
 
-        HandlePickup();
+        PickUpDropManager();
         HandleInventory();
-        HandleDrop();
-        Debug.Log(inventoryBlocks[currentSlot]);
     }
 
-    void HandlePickup()
+    void PickUpDropManager()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, .5f, 0), Vector2.right * transform.localScale.x, pickupRange, pickupLayer);
-            RaycastHit2D hit2 = Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), Vector2.right * transform.localScale.x, pickupRange, pickupLayer);
+            RaycastHit2D hit2 = Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), Vector2.right * transform.localScale.x, pickupRange, pickupLayer | bibiLayer);
 
-            if (hit.collider != null)
+            if (inventoryBlocks[currentSlot] != null)
+            {
+                HandleDrop();
+            }
+
+            else if (hit.collider != null)
             {
                 if (inventoryBlocks[currentSlot] == null)
                 {
                     AddToInventory(hit.collider.gameObject);
                     hit.collider.gameObject.SetActive(false);
                 }
-                
+
             }
 
             else if (hit2.collider != null)
             {
-                AddToInventory(hit2.collider.gameObject);
-                hit2.collider.gameObject.SetActive(false);
-
                 if (inventoryBlocks[currentSlot] == null)
                 {
-                    AddToInventory(hit.collider.gameObject);
-                    hit.collider.gameObject.SetActive(false);
+                    AddToInventory(hit2.collider.gameObject);
+                    hit2.collider.gameObject.SetActive(false);
                 }
             }
         }
@@ -102,6 +112,10 @@ public class BoboScript : MonoBehaviour
     {
         if (currentSlot < 3 && inventoryBlocks[currentSlot] == null)
         {
+            // Disable the picked-up object instead of setting it inactive
+            block.GetComponent<Rigidbody2D>().simulated = false;
+            block.GetComponent<Collider2D>().enabled = false;
+
             inventoryBlocks[currentSlot] = block;
             UpdateInventoryUI();
         }
@@ -144,15 +158,16 @@ public class BoboScript : MonoBehaviour
 
     private void HandleDrop()
     {
-        if (Input.GetKeyDown(KeyCode.I) && isInventoryActive && inventoryBlocks[currentSlot] != null)
-        {
-            GameObject blockToDrop = inventoryBlocks[currentSlot];
-            blockToDrop.transform.position = transform.position + Vector3.right * transform.localScale.x;
-            blockToDrop.SetActive(true);
-            inventoryBlocks[currentSlot] = null;
 
-            UpdateInventoryUI();
-        }
+        GameObject blockToDrop = inventoryBlocks[currentSlot];
+        blockToDrop.GetComponent<Rigidbody2D>().simulated = true;
+        blockToDrop.GetComponent<Collider2D>().enabled = true;
+
+        blockToDrop.transform.position = transform.position + Vector3.right * transform.localScale.x;
+        blockToDrop.SetActive(true);
+        inventoryBlocks[currentSlot] = null;
+
+        UpdateInventoryUI();
     }
 
     private void UpdateInventoryUI()
@@ -161,12 +176,26 @@ public class BoboScript : MonoBehaviour
         {
             if (i == currentSlot)
             {
-                // Set the current slot to green
-                inventorySlots[i].color = Color.green;
+                inventorySlots[i].rectTransform.localScale = Vector3.one * selectedSlotScale;
             }
             else
             {
-                // Set other slots to white
+                inventorySlots[i].rectTransform.localScale = Vector3.one;
+            }
+
+            if (inventoryBlocks[i] != null)
+            {
+                Sprite blockSprite = inventoryBlocks[i].GetComponent<SpriteRenderer>().sprite;
+                inventorySlots[i].sprite = blockSprite;
+
+                inventorySlots[i].color = inventoryBlocks[i].GetComponent<SpriteRenderer>().color;
+
+                inventorySlots[i].enabled = true;
+            }
+            else
+            {
+                inventorySlots[i].sprite = originalSprites[i];
+                inventorySlots[i].enabled = true;
                 inventorySlots[i].color = Color.white;
             }
         }
