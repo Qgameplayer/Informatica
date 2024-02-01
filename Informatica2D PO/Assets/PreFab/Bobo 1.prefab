@@ -321,6 +321,9 @@ MonoBehaviour:
   pickupLayer:
     serializedVersion: 2
     m_Bits: 1024
+  bibiLayer:
+    serializedVersion: 2
+    m_Bits: 256
   inventory: {fileID: 5828141418657666344}
   inventorySlots:
   - {fileID: 6688944559571691980}
@@ -372,14 +375,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boboScript: {fileID: 1134915522385704479}
   groundCheckPoint: {fileID: 2306015922097330145}
-  isOnGround: 0
+  isOnJumpAbleGround: 0
   groundCheckRadius: 0.25
   groundCheckLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  waterLayerMask:
+    serializedVersion: 2
+    m_Bits: 16
   bibiCheckLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  pickUpAbleBlock:
+    serializedVersion: 2
+    m_Bits: 0
   isOnBibi: 0
 --- !u!1 &4743856085209039475
 GameObject:

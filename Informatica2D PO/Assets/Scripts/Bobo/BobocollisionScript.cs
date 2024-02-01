@@ -11,11 +11,12 @@ public class BobocollisionScript : MonoBehaviour
     
 
     [SerializeField] private Transform groundCheckPoint;
-    [SerializeField] internal bool isOnGround;
+    [SerializeField] internal bool isOnJumpAbleGround;
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private LayerMask groundCheckLayerMask;
-
+    [SerializeField] private LayerMask waterLayerMask;
     [SerializeField] private LayerMask bibiCheckLayerMask;
+    [SerializeField] private LayerMask pickUpAbleBlock;
     [SerializeField] private bool isOnBibi;
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class BobocollisionScript : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        isOnGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask);
+        isOnJumpAbleGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask | waterLayerMask | pickUpAbleBlock);
         isOnBibi = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, bibiCheckLayerMask);
     }
 }
