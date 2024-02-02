@@ -16,17 +16,19 @@ public class BoboScript : MonoBehaviour
     [SerializeField]
     internal BobocollisionScript boboCollisionScript;
 
+    internal GameObject bibi;
+
     internal LogicScript logicScript;
     private GameObject logic;
 
     internal Rigidbody2D rb;
 
+    internal Vector2 spawnPos;
 
     [SerializeField] private float pickupRange = 2f;
     [SerializeField] private LayerMask pickupLayer;
     [SerializeField] private LayerMask bibiLayer;
 
-    private GameObject heldBlock;
     [SerializeField] private GameObject inventory;
 
     private float lastInventoryInputTime;
@@ -44,7 +46,11 @@ public class BoboScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bibi = GameObject.FindWithTag("Bibi");
+
         rb = GetComponent<Rigidbody2D>();
+
+        spawnPos = transform.position;
 
         logic = GameObject.FindWithTag("Logic");
         logicScript = logic.GetComponent<LogicScript>();
@@ -60,6 +66,11 @@ public class BoboScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y < -5)
+        {
+            logicScript.HandlePlayerDeath(this.gameObject);
+        }
+
         if (isInventoryActive)
         {
             inventory.SetActive(true);

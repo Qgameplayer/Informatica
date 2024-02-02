@@ -12,6 +12,8 @@ TagManager:
   - Bobo
   - BibiTokens
   - BoboTokens
+  - BibiPortal
+  - BoboPortal
   layers:
   - Default
   - TransparentFX

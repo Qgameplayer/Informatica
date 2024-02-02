@@ -7,29 +7,31 @@ using UnityEngine;
 public class BibiPortalScript : MonoBehaviour
 {
 
-    [SerializeField] private string layerToCheck;
+    public bool isPortalActivated = false;
 
-    private int amountOfTokens;
-
-    public bool isPortalActived = false;
+    private SpriteRenderer m_SpriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        amountOfTokens = GameObject.FindGameObjectsWithTag("BibiTokens").Length;
-
+        m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (amountOfTokens == 0)
+        if (GameObject.FindGameObjectsWithTag("BibiTokens").Length == 0)
         {
-            isPortalActived = true;
+            isPortalActivated = true;
         }
         else
         {
-            isPortalActived = false;
+            isPortalActivated = false;
+        }
+
+        if (isPortalActivated)
+        {
+            m_SpriteRenderer.color = Color.green;
         }
     }
 }

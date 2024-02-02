@@ -209,6 +209,9 @@ MonoBehaviour:
   groundCheckLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  pickUpAbleBlock:
+    serializedVersion: 2
+    m_Bits: 1024
   boboCheckLayerMask:
     serializedVersion: 2
     m_Bits: 512

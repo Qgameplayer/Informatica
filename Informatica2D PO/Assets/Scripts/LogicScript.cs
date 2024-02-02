@@ -12,6 +12,14 @@ public class LogicScript : MonoBehaviour
     private GameObject bibi;
     BibiScript bibiScript;
 
+    private GameObject bobo;
+    BoboScript boboScript;
+
+    private GameObject bibiPortal;
+    BibiPortalScript bibiPortalScript;
+
+    private GameObject boboPortal;
+    BoboPoralScript boboPortalScript;
 
     private int currentLifes = 3;
 
@@ -19,39 +27,60 @@ public class LogicScript : MonoBehaviour
     {
         bibi = GameObject.FindWithTag("Bibi");
         bibiScript = bibi.GetComponent<BibiScript>();
-    }
 
-    public void TakeLifeOff()
+        bobo = GameObject.FindWithTag("Bobo");
+        boboScript = bobo.GetComponent<BoboScript>();
+
+        bibiPortal = GameObject.FindWithTag("BibiPortal");
+        bibiPortalScript = bibiPortal.GetComponent<BibiPortalScript>();
+
+        boboPortal = GameObject.FindWithTag("BoboPortal");
+        boboPortalScript = boboPortal.GetComponent<BoboPoralScript>();
+    }
+    private void Update()
     {
-        currentLifes--;
-        if (currentLifes == 0)
+        //Debug.Log(bibiScript.bibiCollisionScript.isInBibiPortal + " " + bibiPortalScript.isPortalActivated + " " + boboScript.boboCollisionScript.isInBoboPortal + " " + boboPortalScript.isPortalActivated);
+
+        if (bibiScript.bibiCollisionScript.isInBibiPortal && bibiPortalScript.isPortalActivated && boboScript.boboCollisionScript.isInBoboPortal && boboPortalScript.isPortalActivated)
         {
-            
+            LoadNextScene();
         }
-
     }
-
-    public void HandlePlayerDeath()
+    public void HandlePlayerDeath(GameObject deadPlayer)
     {
         currentLifes--;
         if (currentLifes == 0)
         {
             GameOver();
         }
-        if (currentLifes != 0)
+        else
         {
-            RestartLevel();
+            RespawnPlayer(deadPlayer);
         }
     }
 
-    private void RestartLevel()
+    private void RespawnPlayer(GameObject player)
     {
-        Vector2 spawnPos = bibiScript.spawnPos;
-        bibi.transform.position = spawnPos;
+        if (player == bibi)
+        {
+            Vector2 spawnPos = bibiScript.spawnPos;
+            bibi.transform.position = spawnPos;
+        }
+
+        else if (player == bobo)
+        {
+            Vector2 spawnPos = boboScript.spawnPos;
+            bobo.transform.position = spawnPos;
+        }
     }
 
     private void GameOver()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

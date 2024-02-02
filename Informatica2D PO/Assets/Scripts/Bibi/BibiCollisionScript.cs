@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BibiCollisionScript : MonoBehaviour
 {
@@ -12,9 +14,11 @@ public class BibiCollisionScript : MonoBehaviour
     internal bool isOnBobo;
 
     [SerializeField] private float groundCheckRadius;
-    [SerializeField] private LayerMask groundCheckLayerMask;
 
+    [SerializeField] private LayerMask groundCheckLayerMask;
+    [SerializeField] private LayerMask pickUpAbleBlock;
     [SerializeField] private LayerMask boboCheckLayerMask;
+
     [SerializeField] private Transform groundCheckPoint;
 
     [SerializeField] private float rayCastDistance = 0.55f;
@@ -26,10 +30,12 @@ public class BibiCollisionScript : MonoBehaviour
     internal bool upObject;
     internal bool downObject;
 
+    public bool isInBibiPortal;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        isInBibiPortal = false;
     }
 
     private void Update()
@@ -44,7 +50,7 @@ public class BibiCollisionScript : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        isOnGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask);
+        isOnGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundCheckLayerMask | pickUpAbleBlock);
         isOnBobo = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, boboCheckLayerMask);
     }
 
@@ -52,12 +58,12 @@ public class BibiCollisionScript : MonoBehaviour
     {
         if (collision.gameObject == bibiScript.spike)
         {
-            bibiScript.logicScript.HandlePlayerDeath();
+            bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
         }
 
         if (collision.gameObject == bibiScript.water)
         {
-            bibiScript.logicScript.HandlePlayerDeath();
+            bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
         }
     }
 
@@ -68,9 +74,19 @@ public class BibiCollisionScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject gameObject = collision.gameObject;
         if (collision.gameObject == bibiScript.ladder)
         {
             isNearLadder = true;
+        }
+
+        if (collision.gameObject.tag == "BibiTokens")
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "BibiPortal")
+        {
+            isInBibiPortal = true;
         }
     }
 
@@ -79,6 +95,10 @@ public class BibiCollisionScript : MonoBehaviour
         if (collision.gameObject == bibiScript.ladder)
         {
             isNearLadder = false;
+        }
+        if (collision.gameObject.tag == "BibiPortal")
+        {
+            isInBibiPortal = false;
         }
     }
 

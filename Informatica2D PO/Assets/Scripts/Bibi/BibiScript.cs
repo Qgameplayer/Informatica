@@ -58,6 +58,8 @@ public class BibiScript : MonoBehaviour
 
         MovementManager();
         location = transform.position;
+
+        
     }
 
     private void MovementManager()
@@ -65,7 +67,7 @@ public class BibiScript : MonoBehaviour
 
         if (transform.position.y < -5)
         {
-            logicScript.HandlePlayerDeath();
+            logicScript.HandlePlayerDeath(this.gameObject);
         }
 
     }
