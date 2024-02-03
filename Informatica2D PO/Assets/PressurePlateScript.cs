@@ -24,7 +24,7 @@ public class PressurePlateScript : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.name == "Bobo")
+        if (collision.transform.name == "Bobo" && transform.position.y  > -4.6f)
         {
         
             transform.Translate(0, -0.01f, 0);
