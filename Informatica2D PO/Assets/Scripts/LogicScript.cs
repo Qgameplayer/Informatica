@@ -45,6 +45,8 @@ public class LogicScript : MonoBehaviour
         {
             LoadNextScene();
         }
+
+        BackToMenu();
     }
     public void HandlePlayerDeath(GameObject deadPlayer)
     {
@@ -82,5 +84,13 @@ public class LogicScript : MonoBehaviour
     private void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void BackToMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
