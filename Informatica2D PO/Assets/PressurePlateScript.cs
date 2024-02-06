@@ -6,12 +6,14 @@ public class PressurePlateScript : MonoBehaviour
 {
     public Vector3 originalPos; 
     bool moveBack = false;
-    internal GameObject MovingPlatform;
+    internal GameObject movingPlatform;
+    
 
 
     private void Start () { 
     originalPos = transform.position;
-    Platform = GameObject.FindWithTag("MovingPlatform");
+    movingPlatform = GameObject.FindWithTag("MovingPlatform");
+
     }
 
     
@@ -29,7 +31,7 @@ public class PressurePlateScript : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
 
-       
+        
         if (collision.transform.name == "Bobo" && transform.position.y  > -4.6f)
         {
         
