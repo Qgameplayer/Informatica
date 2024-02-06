@@ -220,7 +220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4422886785360463476}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.92, y: -2.44, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
@@ -388,8 +388,9 @@ MonoBehaviour:
     m_Bits: 256
   pickUpAbleBlock:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   isOnBibi: 0
+  isInBoboPortal: 0
 --- !u!1 &4743856085209039475
 GameObject:
   m_ObjectHideFlags: 0
