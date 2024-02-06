@@ -15,7 +15,7 @@ public class MovingPlatformScript : MonoBehaviour
 
     public void movingPlatform()
     {
-        if (transform.position.y < -0,3) 
+        if (transform.position.y < -0.3) 
             {
             transform.Translate(0, 0.05f, 0);
         }
