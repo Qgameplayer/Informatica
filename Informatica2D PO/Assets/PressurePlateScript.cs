@@ -33,7 +33,7 @@ public class PressurePlateScript : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        movingPlatform.movingPlatformUp();
+        movingPlatform.MovingPlatformUp();
 
         if (collision.transform.name == "Bobo" && transform.position.y > -4.6f)
         {
@@ -53,7 +53,7 @@ public class PressurePlateScript : MonoBehaviour
             moveBack = true;
             GetComponent<SpriteRenderer>().color = Color.white;
         }
-        movingPlatform.movingPlatformDown();
+        movingPlatform.MovingPlatformDown();
     }
     private void Update()
     {
