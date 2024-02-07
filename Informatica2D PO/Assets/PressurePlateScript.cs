@@ -53,6 +53,7 @@ public class PressurePlateScript : MonoBehaviour
             moveBack = true;
             GetComponent<SpriteRenderer>().color = Color.white;
         }
+        movingPlatform.movingPlatformDown();
     }
     private void Update()
     {

@@ -22,6 +22,14 @@ public class MovingPlatformScript : MonoBehaviour
 
     }
 
+  
+    public void movingPlatformDown() { 
+        while (transform.position.y > -3.87)
+        {
+            transform.Translate(0, -0.01f, 0);
+        }
+    }
+
     void Update()
     {
       
