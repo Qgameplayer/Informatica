@@ -13,7 +13,7 @@ public class MovingPlatformScript : MonoBehaviour
         originalPos = transform.position;
     }
 
-    public void movingPlatform()
+    public void movingPlatformUp()
     {
         if (transform.position.y < -0.3) 
             {
@@ -24,6 +24,6 @@ public class MovingPlatformScript : MonoBehaviour
 
     void Update()
     {
-        movingPlatform();
+      
     }
 }
