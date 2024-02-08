@@ -15,7 +15,7 @@ public class MovingPlatformUpAndDown : MonoBehaviour
     {
         while (transform.position.y < -0.01f)
         {
-            transform.Translate(0, 0.01f, 0);
+            transform.Translate(0, 0.001f, 0);
             yield return null; // Wacht op het volgende frame voordat de loop opnieuw wordt gecontroleerd
         }
     }
@@ -28,7 +28,7 @@ public class MovingPlatformUpAndDown : MonoBehaviour
         {
             while (transform.position.y > -3.87f)
             {
-                transform.Translate(0, -0.01f, 0);
+                transform.Translate(0, -0.001f, 0);
                 yield return null; // Wacht op het volgende frame voordat de loop opnieuw wordt gecontroleerd
             }
         }
