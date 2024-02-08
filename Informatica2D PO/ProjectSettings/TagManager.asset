@@ -15,6 +15,7 @@ TagManager:
   - BibiPortal
   - BoboPortal
   - MovingPlatform
+  - MovingPlatformUpAndDown
   layers:
   - Default
   - TransparentFX
