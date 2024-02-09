@@ -9,12 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 8556325fbb051224f9688fd0305b1992
   - enabled: 1
+    path: Assets/Scenes/Level Menu.unity
+    guid: 0c065afbf26d0324b9970c811ae56b13
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Level 1 (tutorial).unity
+    guid: d1679245fce53d541978127fb198b458
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Level 2 (tutorial).unity
+    guid: 4447c5dd183ac45448008243f24ab935
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Level 3 (tutorial).unity
+    guid: a5ebc5dd62f451e4eb3de879bd32e2cf
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Level 4 (tutorial).unity
+    guid: 22dd0d8042f5a9e4dbd79013a2e0ba75
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Level 5 (tutorial).unity
+    guid: 6fcdc73b59b609540aadc00df9add7eb
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Level 6 (tutorial).unity
+    guid: 3e75e0c90c9fc274e8966d3977e6668f
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Scene2.unity
     guid: d5304d36c2d1d2c4cbe4dde855b3f66b
-  - enabled: 1
-    path: Assets/Scenes/LevelMenu.unity
-    guid: 0c065afbf26d0324b9970c811ae56b13
   m_configObjects: {}
