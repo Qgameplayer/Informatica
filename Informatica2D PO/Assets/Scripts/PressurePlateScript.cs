@@ -33,15 +33,19 @@ public class PressurePlateScript : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        movingPlatform.MovingPlatformUp();
+        
 
         if (collision.transform.name == "Bobo" && transform.position.y > -4.6f)
         {
-
+   
             transform.Translate(0, -0.01f, 0);
 
 
             moveBack = false;
+        }
+        if (collision.transform.name == "Bobo")
+        {
+            movingPlatform.MovingPlatformUp();
         }
 
     }

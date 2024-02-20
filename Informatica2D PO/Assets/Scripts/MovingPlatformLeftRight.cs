@@ -19,7 +19,7 @@ public class MovingPlatformLeftRight : MonoBehaviour
     {
         while (transform.position.x > -12.00f)
         {
-            transform.Translate(-0.001f, 0, 0);
+            transform.Translate(-0.01f, 0, 0);
             yield return null;
         }
     }
@@ -36,7 +36,7 @@ public class MovingPlatformLeftRight : MonoBehaviour
     {
         while (transform.position.x < -6.81f)
         {
-            transform.Translate(0.001f, 0, 0);
+            transform.Translate(0.01f, 0, 0);
             yield return null;
         }
     }

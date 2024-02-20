@@ -5,38 +5,47 @@ using UnityEngine;
 public class MovingPlatformUpAndDown : MonoBehaviour
 {
     private bool movingUp = true;
+    private Coroutine currentCoroutine;
 
     private void MovingPlatformUp()
     {
-        StartCoroutine(MoveUp());
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+
+        currentCoroutine = StartCoroutine(MoveUp());
     }
+
 
     IEnumerator MoveUp()
     {
         while (transform.position.y < -0.01f)
         {
-            transform.Translate(0, 0.001f, 0);
+            transform.Translate(0, 0.01f, 0);
             yield return null; // Wacht op het volgende frame voordat de loop opnieuw wordt gecontroleerd
         }
     }
-        private void MovingPlatformDown()
-        {
-            StartCoroutine(MoveDown());
-        }
-
-        IEnumerator MoveDown()
-        {
-            while (transform.position.y > -3.87f)
-            {
-                transform.Translate(0, -0.001f, 0);
-                yield return null; // Wacht op het volgende frame voordat de loop opnieuw wordt gecontroleerd
-            }
-        }
-        // Start is called before the first frame update
-        void Start()
+    private void MovingPlatformDown()
     {
-        
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+
+        currentCoroutine = StartCoroutine(MoveDown());
+    }
+
+
+    IEnumerator MoveDown()
+    {
+        while (transform.position.y > -3.87f)
+        {
+            transform.Translate(0, -0.01f, 0);
+            yield return null; // Wacht op het volgende frame voordat de loop opnieuw wordt gecontroleerd
         }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -61,4 +70,3 @@ public class MovingPlatformUpAndDown : MonoBehaviour
         }
     }
 }
-
