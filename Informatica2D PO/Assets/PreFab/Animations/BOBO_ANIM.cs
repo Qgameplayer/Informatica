@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BOBO_ANIM : MonoBehaviour
-{
+public class BOBO_ANIM : MonoBehaviour {
 
 	private Animator anim;
 
@@ -20,6 +19,15 @@ public class BOBO_ANIM : MonoBehaviour
 		} else {
 			anim.SetBool("isRunning", false);
 		}
-	}
 
+		if(Input.GetKeyDown(KeyCode.W)){
+			anim.SetTrigger("jump");
+		}
+
+
+
+
+
+
+	}
 }
