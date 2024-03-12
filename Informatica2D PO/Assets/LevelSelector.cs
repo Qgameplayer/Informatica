@@ -10,16 +10,7 @@ public class LevelSelector : MonoBehaviour
 
     private void Start()
     {
-        int levelAt = PlayerPrefs.GetInt("levelAt", 2);
 
-        // Loop door alle knoppen (levels)
-        for (int i = 1; i < levelButtons.Length; i++)
-        {
-            if (i + 2 > levelAt)
-            {
-                levelButtons[i].interactable = false;
-            }
-        }
     }
 
     public void OpenLevel(int levelNumber)
