@@ -24,10 +24,18 @@ public class BOBO_ANIM : MonoBehaviour {
 			anim.SetTrigger("jump");
 		}
 
+		//Vector3 characterScale = transform.localScale;
+
+      //  if (Input.GetKey(KeyCode.A)){
+		//	characterScale.x = -0.05751192;
+		//}
+
+       // if (Input.GetKey(KeyCode.D))
+       // {
+       //     characterScale.x = 0.05751192;
+       // }
 
 
 
-
-
-	}
+    }
 }
