@@ -23,7 +23,7 @@ public class PressurePlateScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.name == "Bobo")
+        if (collision.transform.name == "Bobo 1")
         {
             collision.transform.parent = transform;
             GetComponent<SpriteRenderer>().color = Color.red;
@@ -35,7 +35,7 @@ public class PressurePlateScript : MonoBehaviour
     {
         
 
-        if (collision.transform.name == "Bobo" && transform.position.y > -4.6f)
+        if (collision.transform.name == "Bobo 1" && transform.position.y > -4.45f)
         {
    
             transform.Translate(0, -0.01f, 0);
@@ -43,7 +43,7 @@ public class PressurePlateScript : MonoBehaviour
 
             moveBack = false;
         }
-        if (collision.transform.name == "Bobo")
+        if (collision.transform.name == "Bobo 1")
         {
             movingPlatform.MovingPlatformUp();
         }
@@ -51,7 +51,7 @@ public class PressurePlateScript : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.transform.name == "Bobo")
+        if (collision.transform.name == "Bobo 1")
         {
             collision.transform.parent = null;
             moveBack = true;

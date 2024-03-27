@@ -16,6 +16,8 @@ TagManager:
   - BoboPortal
   - MovingPlatform
   - MovingPlatformUpAndDown
+  - EPA
+  - EPB
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ public class LogicScript : MonoBehaviour
     private GameObject boboPortal;
     BoboPoralScript boboPortalScript;
 
-    private int currentLifes = 3;
+    private int currentLifes = 1;
 
     private void Start()
     {
@@ -39,7 +39,6 @@ public class LogicScript : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(bibiScript.bibiCollisionScript.isInBibiPortal + " " + bibiPortalScript.isPortalActivated + " " + boboScript.boboCollisionScript.isInBoboPortal + " " + boboPortalScript.isPortalActivated);
 
         if (bibiScript.bibiCollisionScript.isInBibiPortal && bibiPortalScript.isPortalActivated && boboScript.boboCollisionScript.isInBoboPortal && boboPortalScript.isPortalActivated)
         {

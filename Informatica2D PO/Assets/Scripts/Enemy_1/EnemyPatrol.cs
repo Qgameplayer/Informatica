@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public GameObject EnemyPointA;
-    public GameObject EnemyPointB;
+    private GameObject EnemyPointA;
+    private GameObject EnemyPointB;
     private Rigidbody2D rb;
     private Animator anim;
     private Transform currentPoint;
@@ -14,10 +14,21 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        EnemyPointA = GameObject.FindGameObjectWithTag("EPA");
+        EnemyPointB = GameObject.FindGameObjectWithTag("EPB");
+
+        if (EnemyPointA == null || EnemyPointB == null)
+        {
+            Debug.LogError("Could not find enemy points with tags EPA and EPB.");
+        }
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentPoint = EnemyPointB.transform;
         anim.SetBool("isRunning", true);
+
+
     }
 
 
@@ -52,11 +63,11 @@ public class NewBehaviourScript : MonoBehaviour
         transform.localScale = localScale;
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(EnemyPointA.transform.position, 0.5f);
-        Gizmos.DrawWireSphere(EnemyPointB.transform.position, 0.5f);
-        Gizmos.DrawLine(EnemyPointA.transform.position, EnemyPointB.transform.position);
-    }
+    //private void OnDrawGizmos()
+    //{
+        //Gizmos.DrawWireSphere(EnemyPointA.transform.position, 0.5f);
+        //Gizmos.DrawWireSphere(EnemyPointB.transform.position, 0.5f);
+        //Gizmos.DrawLine(EnemyPointA.transform.position, EnemyPointB.transform.position);
+    //}
 
 }
