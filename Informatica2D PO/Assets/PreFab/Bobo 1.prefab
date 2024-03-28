@@ -668,7 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boboScript: {fileID: 1134915522385704479}
   moveSpeed: 3
-  jumpHeight: 10
+  jumpHeight: 12
 --- !u!114 &4663607795781546459
 MonoBehaviour:
   m_ObjectHideFlags: 0
