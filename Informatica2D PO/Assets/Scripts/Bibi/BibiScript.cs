@@ -20,10 +20,10 @@ public class BibiScript : MonoBehaviour
     internal LogicScript logicScript;
     private GameObject logic;
 
-    internal GameObject spike;
+    internal GameObject[] spike;
     internal GameObject ladder;
-    internal GameObject water;
-    internal GameObject enemy;
+    internal GameObject[] water;
+    internal GameObject[] enemy;
 
     internal Rigidbody2D rb;
 
@@ -45,14 +45,15 @@ public class BibiScript : MonoBehaviour
         logic = GameObject.FindWithTag("Logic");
         logicScript = logic.GetComponent<LogicScript>();
 
-        spike = GameObject.FindWithTag("Spike");
+        spike = GameObject.FindGameObjectsWithTag("Spike");
 
         ladder = GameObject.FindWithTag("Ladder");
 
-        water = GameObject.FindWithTag("Water");
+        water = GameObject.FindGameObjectsWithTag("Water");
 
-        enemy = GameObject.FindWithTag("Enemy");
+        enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
+        Debug.Log(spike);
     }
 
     // Update is called once per frame

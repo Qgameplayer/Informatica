@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -56,20 +57,32 @@ public class BibiCollisionScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == bibiScript.spike)
+        foreach(GameObject spike in bibiScript.spike)
         {
-            bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
+            if (collision.gameObject == spike)
+            {
+                bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
+            }
         }
 
-        if (collision.gameObject == bibiScript.water)
+        foreach(GameObject water in bibiScript.water)
         {
-            bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
+            if (collision.gameObject == water)
+            {
+                bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
+            }
         }
+        
+        foreach(GameObject enemy in bibiScript.enemy)
+        {
+            if (collision.gameObject == enemy)
+            {
+                Debug.Log(collision.gameObject);
+                bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
+            }
+        }
+        
 
-        if (collision.gameObject == bibiScript.enemy)
-        {
-            bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
-        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
