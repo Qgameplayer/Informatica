@@ -65,6 +65,11 @@ public class BibiCollisionScript : MonoBehaviour
         {
             bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
         }
+
+        if (collision.gameObject == bibiScript.enemy)
+        {
+            bibiScript.logicScript.HandlePlayerDeath(this.gameObject);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

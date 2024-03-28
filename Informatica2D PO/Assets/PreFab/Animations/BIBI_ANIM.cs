@@ -6,10 +6,12 @@ public class BIBI_ANIM : MonoBehaviour
 {
 
 	private Animator anim;
+    private Transform parentTransform;
 
-	void Start(){
+    void Start(){
 		anim = GetComponent<Animator>();
-	}
+        parentTransform = transform.parent;
+    }
 
 	void Update(){
 
@@ -24,13 +26,13 @@ public class BIBI_ANIM : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.localScale = new Vector3(-0.07f, 0.07f, 1f);
-          
+            parentTransform.localScale = new Vector3(-1, 1, 1f);
+
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.localScale = new Vector3(0.07f, 0.07f, 1f);
-          
+            parentTransform.localScale = new Vector3(1, 1, 1f);
+
         }
     }
 

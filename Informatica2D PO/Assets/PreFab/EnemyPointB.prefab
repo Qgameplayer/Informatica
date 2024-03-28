@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6638747884776569207}
   m_Layer: 0
   m_Name: EnemyPointB
-  m_TagString: Untagged
+  m_TagString: EPB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -37,6 +37,16 @@ public class BobocollisionScript : MonoBehaviour
         {
             boboScript.logicScript.HandlePlayerDeath(boboScript.bibi);
         }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == boboScript.enemy)
+            {
+                Debug.Log("hit");
+                Destroy(boboScript.enemy);
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

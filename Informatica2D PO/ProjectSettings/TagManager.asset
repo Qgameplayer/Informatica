@@ -18,6 +18,7 @@ TagManager:
   - MovingPlatformUpAndDown
   - EPA
   - EPB
+  - Enemy
   layers:
   - Default
   - TransparentFX

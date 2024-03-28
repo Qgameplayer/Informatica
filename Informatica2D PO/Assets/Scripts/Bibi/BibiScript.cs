@@ -23,6 +23,7 @@ public class BibiScript : MonoBehaviour
     internal GameObject spike;
     internal GameObject ladder;
     internal GameObject water;
+    internal GameObject enemy;
 
     internal Rigidbody2D rb;
 
@@ -49,6 +50,8 @@ public class BibiScript : MonoBehaviour
         ladder = GameObject.FindWithTag("Ladder");
 
         water = GameObject.FindWithTag("Water");
+
+        enemy = GameObject.FindWithTag("Enemy");
 
     }
 

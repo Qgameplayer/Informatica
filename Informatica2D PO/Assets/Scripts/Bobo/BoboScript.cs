@@ -18,6 +18,8 @@ public class BoboScript : MonoBehaviour
 
     internal GameObject bibi;
 
+    internal GameObject enemy;
+
     internal LogicScript logicScript;
     private GameObject logic;
 
@@ -47,6 +49,8 @@ public class BoboScript : MonoBehaviour
     void Start()
     {
         bibi = GameObject.FindWithTag("Bibi");
+
+        enemy = GameObject.FindWithTag("Enemy");
 
         rb = GetComponent<Rigidbody2D>();
 
