@@ -24,6 +24,21 @@ EditorBuildSettings:
     path: Assets/Scenes/City/Level 1 (city).unity
     guid: f15c21b12a0d1c143aa6ab7350c934bc
   - enabled: 1
+    path: Assets/Scenes/City/Level 2 (city).unity
+    guid: 43984e560cf006d4887744832a749bcf
+  - enabled: 1
+    path: Assets/Scenes/City/Level 3 (city).unity
+    guid: 5ea47d2f9f624a64e8975e864dc4b922
+  - enabled: 1
+    path: Assets/Scenes/Space/Level 1 (space).unity
+    guid: 387f4f1b019f83e479cc571bb4083675
+  - enabled: 1
+    path: Assets/Scenes/Space/Level 2 (space).unity
+    guid: 5e0ac43712e3c7449ac082a147c5ec5d
+  - enabled: 1
+    path: Assets/Scenes/Space/Level 3 (space).unity
+    guid: acfe344a3825bce459e288aafcad02e8
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
